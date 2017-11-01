@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/cooploops/HangmanCLI#readme",
   "dependencies": {
-    "inquirer": "^3.3.0"
+    "inquirer": "^3.3.0",
+    "superb": "^2.0.0"
   }
 }
