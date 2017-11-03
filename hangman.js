@@ -8,7 +8,7 @@ function startGame (){
     numGuesses = 6;
     correctLetters = randWord.lettersOfWord;
     currentWord = randWord.newWord;
-    console.log(currentWord);
+    console.log("New Game Started");
     randWord.wordRender();
     guessLetter();
 }
