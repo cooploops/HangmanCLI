@@ -1,10 +1,13 @@
 const superb = require("superb");
+const letter = require("./letter.js");
 
-function Word (){
-    this.wordSpace = "";
-    this.randomWord = superb();
-    this.wordLength = this.randomWord.length;
+function Word () {
+    this.newWord = superb();
+    this.lettersOfWord = [];
+    for(i=0;i<this.newWord.length;i++){
+        let letters = new letter(this.newWord[i]);
+        this.lettersOfWord.push(letters);
+    }
 }
-
 
 module.exports = Word;

@@ -1,7 +1,18 @@
 const inquirer = require("inquirer");
-const letter = require("./letter.js");
+const Word = require("./constructors/word.js");
 
-// this will be inside a function asking if the user has guessed the right word 
+function startGame (){
+    let randWord = new Word();
+    correctLetters = randWord.lettersOfWord;
+    for(i=0;i<correctLetters.length;i++){
+        console.log(correctLetters[i].letter);
+    }
+}
+
+let correctLetters;
+startGame();
+
+let numGuesses = 100;
 function guessLetter() {
     if(numGuesses>0){
         inquirer.prompt([
@@ -18,7 +29,24 @@ function guessLetter() {
                 }
             }
         ]).then(function(answer){
-        
+        let wordSpace = "";
+        let letterGuessed = answer.guess;
+        console.log("you guessed: " + letterGuessed);
+        for(i=0;i<correctLetters.length;i++){
+            if(letterGuessed.indexOf(correctLetters[i].letter) != -1){
+                console.log("correct");
+                wordSpace += correctLetters[i].letter;
+            } else {
+                wordSpace += " _ ";
+            }
+        }
+        console.log(numGuesses);
+        console.log(wordSpace);
+        guessLetter();
         })
+    } else {
+        console.log("You've run out of guesses");
     }
 }
+
+guessLetter();
